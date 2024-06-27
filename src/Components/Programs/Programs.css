@@ -1,0 +1,101 @@
+/* .program{
+    background-color: red;
+    font-size: 100px;
+}
+.program img{
+    width: 100%;
+    background-color: blue;
+} */
+.programs {
+  margin: 80px auto;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.5s;
+}
+.program {
+  flex-basis: 31%;
+  position: relative;
+  z-index: 1;
+}
+/* //width of image should be 100% to ensure program only get 31 % width */
+.program img {
+  width: 100%;
+  /* width: 100%; */
+  border-radius: 10px;
+}
+
+.caption {
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 15, 152, 0.3);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+
+  /* moving up effect */
+
+  padding-top: 70%;
+  transition: all 0.4s;
+}
+.caption:hover {
+  opacity: 1;
+  padding-top: 0%;
+}
+.caption img {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+/* 
+.program::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #1f1f1f9a;
+  z-index: 3;
+  transform: scaleX(1);
+} */
+
+/* .program::before {
+  content: "";
+  position: absolute;
+  background-color: rgba(0, 0, 255, 0.281);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: scaleX(0);
+    /* transform-origin: bottom; */
+/* transition: all 0.4s; */
+/* z-index: 1.5; */
+/* }  */
+/* 
+
+
+.program:hover::before {
+  transform: scaleX(1);
+  /* }  */
+
+@media (max-width: 650px) {
+  .programs {
+    flex-direction: column;
+  }
+  .program {
+    margin: 20px 30px;
+  }
+}
+

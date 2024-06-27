@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif;
+}
+body {
+  background-color: #f5f5f5;
+}
+/* a {
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 1;
+  color: inherit;
+} */
+
+.container {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.btn {
+  background-color: #fff;
+  color: #212121;
+
+  padding: 14px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  border: none;
+  /* outline: 0; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.btn img {
+  width: 20px;
+  margin-left: 6px;
+}
+.btn.dark-btn {
+  background-color: #212ea0;
+  color: #fff;
+}
+
+/* //////////////////////////////mediaquery\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
+
+@media (max-width: 1200px) {
+  .container {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  .btn {
+    padding: 14px 22px;
+  }
+}
+
+/* ////////////////////////////////////////animation\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    /* transform: translateY(200px); */
+  }
+  to {
+    /* transform: translateY(0px); */
+    opacity: 1;
+  }
+}
+@keyframes slideFromLeft {
+  from {
+    transform: translateX(100px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+@keyframes slideFromRight {
+  from {
+    transform: translateX(-100px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+@keyframes slideFromDown {
+  from {
+    transform: translateY(100px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+/* Class to trigger the animation */
+.fadeIn {
+  animation: fadeIn 1.5s;
+}
+.slideFromDown {
+  animation: slideFromDown 1s;
+}
+.slideFromLeft {
+  animation: slideFromLeft 1s;
+}
+.slideFromRight {
+  animation: slideFromRight 1s;
+}
+.initial-slide-up {
+  transform: translateY(200px);
+  /* opacity: 0; */
+}

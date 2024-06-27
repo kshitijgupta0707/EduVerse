@@ -1,0 +1,13 @@
+import Header from './Header/Header'
+import NavBar from './NavBar/NavBar'
+import Hero from './Hero/Hero'
+import Prog from './Programs/Prog'
+import Programs from './Programs/Programs'
+import Title from './Title/Title'
+import About from './About/About'
+import Campus from './Campus/Campus'
+import Testimonials from './Testimonials/Testimonials'
+import ContactUs from './ContactUs/ContactUs'
+import Footer from './Footer/Footer'
+// import VideoPlayer from './VideoPlayer/VideoPlayer'
+export  {NavBar , Header , Hero , Prog , Programs , Title , About , Campus , Testimonials , ContactUs , Footer }

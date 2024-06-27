@@ -1,0 +1,54 @@
+.campus {
+  margin: 80px auto;
+  width: 90%;
+}
+
+.gallery {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.gallery img {
+  width: 23%;
+  border-radius: 10px;
+}
+/* mediaaaaaaaaaaaaaaaaaaaaa */
+@media(max-width: 800px){
+  .gallery { 
+    flex-wrap: wrap;
+    row-gap: 25px;
+  }
+  .gallery img {
+    width: 48%;
+
+  }
+
+}
+
+
+
+/* animations */
+
+.scaleImage{
+  animation: scaleImage 4s linear infinite;
+}
+
+@keyframes scaleImage {
+    0% {
+        transform: scale(1);
+        /* filter: grayscale(0); */
+    }
+
+    50% {
+        transform: scale(1.03);
+        /* filter: grayscale(1); */
+        /* box-shadow: 3px 3px 7px black; */
+    }
+
+    100% {
+        transform: scale(1);
+        /* filter: grayscale(0); */
+    }
+
+}
