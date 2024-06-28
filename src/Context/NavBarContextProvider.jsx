@@ -2,7 +2,7 @@
 import React from "react";
 
 import { createContext, useContext, useState, useRef, useEffect } from "react";
-import { animateScroll as scroll, Events } from "react-scroll";
+import { animateScroll as scroll, Events, scrollSpy } from "react-scroll";
 
 
 export const NavBarContext = createContext();
@@ -10,11 +10,21 @@ export const NavBarContext = createContext();
 
 
 const NavBarContextProvider = (props) => {
-    
+
+
+ 
+
+
+
+
+
+
+
+
     //themeSwitcher
     const [darkMode, setDarkMode] = useState(false);
-    const [hidden, setHidden] = useState(true);
-    const navbar = useRef();
+    const [hidden, setHidden] = useState(window.innerWidth < 850)
+    const navbar = useRef(null);
     const sideBar = useRef(null);
 
     const [sticky, setSticky] = useState(false);
@@ -32,7 +42,7 @@ const NavBarContextProvider = (props) => {
     useEffect(() => {
         window.addEventListener('scroll', (e) => {
             let amount = window.scrollY;
-            console.log('height = ' + window.innerHeight);
+            // console.log('height = ' + window.innerHeight);
             if (amount > 50) {
                 setSticky(true);
             }
@@ -48,11 +58,11 @@ const NavBarContextProvider = (props) => {
     }
 
 
- useEffect(()=>{
-     if (window.innerWidth < 850) {
-         setHidden(true);
-     }
- } , [])
+    // useEffect(() => {
+    //     if (window.innerWidth < 850) {
+    //         setHidden(true);
+    //     }
+    // }, [])
 
 
 
@@ -66,11 +76,13 @@ const NavBarContextProvider = (props) => {
         setHidden(!hidden)
     }
     const handleResize = () => {
-        if (sideBar) {
+        if (sideBar.current != null) {
             if (window.innerWidth > 850) {
                 sideBar.current.style.transform = 'translateX(0px)';
+                setHidden(false);
             } else {
                 sideBar.current.style.transform = 'translateX(200px)';
+                setHidden(true)
             }
         }
     };
@@ -90,39 +102,49 @@ const NavBarContextProvider = (props) => {
 
         window.addEventListener('resize', handleResize);
         document.addEventListener('mousedown', handleClickOutside);
-
+        
+        handleResize();
         return () => {
             window.removeEventListener('resize', handleResize);
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
 
-
-
-
+    
     const [activeSection, setActiveSection] = useState('');
     const sections = ['home', 'programs', 'about', 'campus', 'testimonials', 'contact'];
-
+    
     const handleSetActive = (to) => {
         setActiveSection(to);
     };
+    
+    
+    useEffect(() => {
+        const scrollEventListeners = () => {
+            Events.scrollEvent.register('begin', (to, element) => {
+                setActiveSection(to);
+            });
 
-    // Adding an event listener for scroll events
-    React.useEffect(() => {
-        Events.scrollEvent.register('begin', (to, element) => {
-            setActiveSection(to);
-        });
+            Events.scrollEvent.register('end', (to, element) => {
+                setActiveSection(to);
+            });
 
-        Events.scrollEvent.register('end', (to, element) => {
-            setActiveSection(to);
-        });
+            scrollSpy.update();
+
+            return () => {
+                Events.scrollEvent.remove('begin');
+                Events.scrollEvent.remove('end');
+            };
+        };
+
+        // Run the effect whenever the user resizes the window or navigates to a new section
+        scrollEventListeners();
 
         return () => {
-            Events.scrollEvent.remove('begin');
-            Events.scrollEvent.remove('end');
+            // Clean up the effect when the component unmounts
+            scrollEventListeners();
         };
     }, []);
-
 
 
     useEffect(() => {
@@ -159,7 +181,27 @@ const NavBarContextProvider = (props) => {
         };
     }, [sections]);
 
+    useEffect(() => {
+        const sections = ['home', 'programs', 'about', 'campus', 'testimonials', 'contact'];
 
+        const handleScroll = () => {
+            const currentScrollPosition = window.scrollY;
+            sections.forEach((section) => {
+                const sectionElement = document.getElementById(section);
+                if (sectionElement && sectionElement.offsetTop <= currentScrollPosition) {
+                    const sectionTop = sectionElement.offsetTop;
+                    const sectionHeight = sectionElement.offsetHeight;
+                    if (currentScrollPosition <= sectionTop && currentScrollPosition + window.innerHeight >= sectionTop + sectionHeight) {
+                        setActiveSection(section);
+                    }
+                }
+            });
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
 
 

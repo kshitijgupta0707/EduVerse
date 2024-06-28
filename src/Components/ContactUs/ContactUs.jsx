@@ -2,6 +2,8 @@ import React from 'react'
 import './ContactUs.css'
 import { assets } from '../../assets/index'
 import { useNavBarContext } from '../../Context/NavBarContextProvider'
+import { FaMessage } from "react-icons/fa6";
+import { IoIosContact } from "react-icons/io";
 const ContactUs = () => {
      
     const {hidden} = useNavBarContext();
@@ -43,7 +45,7 @@ const ContactUs = () => {
 
 
             <div className="contact-left">
-                <p className='contact-left-heading' >Send us a message  <img src={assets.msg} alt="" />    </p>
+                <p className='contact-left-heading' >Send us a message  <FaMessage />    </p>
                 <p className='contact-left-para' >
                     Feel free to reach out through contact form or find our contact information below.
                     Your feedback, questions, and suggestions are important to us as we strive to provide exceptional

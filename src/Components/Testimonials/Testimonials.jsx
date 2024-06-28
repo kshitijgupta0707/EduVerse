@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './Testimonials.css'
 import { assets } from '../../assets/index'
 const Testimonials = () => {
@@ -6,11 +6,29 @@ const Testimonials = () => {
 
     const slider = useRef();
     let tx = 0;
+    // useEffect(() => {
+    //     if (tx == -50) {
+    //         setDisableForward(true);
+    //         console.log("forward disable");
+    //     }
+    //     else if (tx == 0) {
+    //         setDisableBackward(true);
+    //         console.log("BACKward disable");
+    //     }
+    //     else {
+            
+    //         console.log("DDFDFDFD");
+    //         setDisableBackward(false);
+    //         setDisableForward(false);
+    //     }
+    // }, [tx])
 
     const slideForward = () => {
         if (tx > -50) {
             tx = tx - 25;
+          
         }
+
         slider.current.style.transform = `translateX(${tx}%)`;
 
 
@@ -21,13 +39,15 @@ const Testimonials = () => {
         }
         slider.current.style.transform = `translateX(${tx}%)`;
     }
+    const [disableBackward, setDisableBackward] = useState(false);
+    const [disableForward, setDisableForward] = useState(false);
 
 
 
     return (
         <div className='testimonials fadeIn' >
-            <img onClick={slideForward} src={assets.next} className='next-btn' alt="" />
-            <img onClick={slideBackward} src={assets.back} className='back-btn' alt="" />
+            <img onClick={slideForward} src={assets.next} className={` ${disableForward ? 'disable' : ""}    next-btn`} alt="" />
+            <img onClick={slideBackward} src={assets.back} className={` ${disableBackward ? 'disable' : ""}    back-btn`} alt="" />
 
 
 
@@ -47,9 +67,7 @@ const Testimonials = () => {
                                 </div>
                             </div>
                             <p>
-                                Choosing to pursue my Computer science degree at Edusity was one of the best decisions I've have ever mae.
-                                The supporting environment , state-of-the-art facilities ,
-                                and commitement to academic excellence have truly exceeded my expectations
+                                This college offers excellent academic programs and dedicated professors who truly care about student success. . I've had numerous opportunities for hands-on learning and internships that have prepared me well for my career. Highly recommend!
                             </p>
 
 
@@ -67,7 +85,7 @@ const Testimonials = () => {
                                 </div>
                             </div>
                             <p>
-                                Choosing to pursue my Computer science degree at Edusity was one of the best decisions I've have ever mae.
+                                Choosing to pursue my Computer science degree at JIIT was one of the best decisions I've have ever mae.
                                 The supporting environment , state-of-the-art facilities ,
                                 and commitement to academic excellence have truly exceeded my expectations
                             </p>
@@ -87,9 +105,7 @@ const Testimonials = () => {
                                 </div>
                             </div>
                             <p>
-                                Choosing to pursue my Computer science degree at Edusity was one of the best decisions I've have ever mae.
-                                The supporting environment , state-of-the-art facilities ,
-                                and commitement to academic excellence have truly exceeded my expectations
+                                Amazing college experience with a supportive environment and diverse student body. The professors are knowledgeable and approachable, and the campus life is always buzzing with activities and events.
                             </p>
 
 
@@ -107,9 +123,7 @@ const Testimonials = () => {
                                 </div>
                             </div>
                             <p>
-                                Choosing to pursue my Computer science degree at Edusity was one of the best decisions I've have ever mae.
-                                The supporting environment , state-of-the-art facilities ,
-                                and commitement to academic excellence have truly exceeded my expectations
+                                The college provides a perfect blend of rigorous academics and extracurricular opportunities. The faculty is exceptional, always encouraging us to think critically and innovate. The career services are outstanding, helping students secure internships and jobs
                             </p>
 
 

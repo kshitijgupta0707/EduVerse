@@ -7,7 +7,8 @@ import { GoDotFill } from "react-icons/go";
 import { MdLightMode } from "react-icons/md";
 import { useNavBarContext } from '../../Context/NavBarContextProvider';
 import { RiCloseLine } from "react-icons/ri";
-
+import { IoBookSharp } from "react-icons/io5";
+import { GiElephant } from "react-icons/gi";
 const NavBar = () => {
     const { darkMode, themeSwitcher, navbar, sideBar, sticky, setSticky, hidden, setHidden, hideSideBar, hideOrShowSideBar, handleResize , activeSection , setActiveSection, handleSetActive , sections} = useNavBarContext();
   
@@ -38,7 +39,9 @@ const NavBar = () => {
             </div>
             <div className='themeSwitcher' onClick={themeSwitcher} >{darkMode ? <MdDarkMode /> : <MdLightMode />} </div>
 
-            <img className='logo' src={assets.logo} alt="" />
+            {/* <img className='logo' src={assets.logo} alt="" /> */}
+            <h3 className='jiit' >JIIT <GiElephant className='book' /></h3>
+            {/* <img className='logo' src={assets.logo2} alt="" /> */}
 
             <ul ref={sideBar} id='sideBar' >
                 <li className='nav-items' >

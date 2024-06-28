@@ -27,6 +27,8 @@ import user4 from "./images/user4.png";
 import whiteArrow from "./images/whiteArrow.png";
 // import elephantlogo from './images/elephantlogo.png'
 // import video from "./images/video.mp4";
+import logo2 from './images/logo2.png'
+import logo3 from './images/logo3.png'
 
 export const assets = {
   about,
@@ -56,6 +58,7 @@ export const assets = {
   user3,
   user4,
   whiteArrow,
+  logo2 , logo3
   // elephantlogo
   // video,
 };
