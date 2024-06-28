@@ -124,8 +124,14 @@ body.dark {
 .dark {
 
 .hero{
-   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0,0,0, 0.8)),
+   background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0,0,0, 0.9)),
     url("./assets/images/hero.png");
+ 
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: rgba(255, 255, 255, 0.782);
+
 }
 
 
