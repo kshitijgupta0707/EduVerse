@@ -5,7 +5,7 @@ import { useNavBarContext } from './Context/NavBarContextProvider';
 const App = () => {
 
   const [playState, setPlayState] = useState(false);
-  const { darkMode } = useNavBarContext();
+  const { darkMode , hidden } = useNavBarContext();
   useEffect(()=>{
     if (darkMode) {
       document.body.classList.add('dark');
@@ -15,7 +15,7 @@ const App = () => {
   } ,[darkMode])
 
   return (
-    <div>
+    <div className={` normal ${hidden ? "" :"rotate-on-header-open"}`} >
 
 
       <Element name='home' >

@@ -11,7 +11,9 @@ const Campus = () => {
             <img className='scaleImage' src={assets.gallery3} alt="" />
             <img className='scaleImage' src={assets.gallery4} alt="" />
         </div>
-        <button className='btn dark-btn' >See More here <img src={assets.whiteArrow} alt="" />  </button>
+            <button onClick={() => {
+                window.location.href = "https://www.jiit.ac.in/"
+            }} className='btn dark-btn' >See More here <img src={assets.whiteArrow} alt="" />  </button>
         </div>
     )
 }

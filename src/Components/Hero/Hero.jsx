@@ -38,7 +38,9 @@ const Hero = () => {
                 <p>Our cutting-edge currriculum is desgined to empower students with the knowledge , skills and
                     experiences needed to exceil in the dynamic field of education
                 </p>
-                <button className='btn exploreBtn' >Explore more  <img className='darkArrow' src={assets.darkArrow} alt="" />  </button>
+                <button onClick={()=>{
+                    window.location.href = "https://www.jiit.ac.in/"
+                }} className='btn exploreBtn' >Explore more  <img className='darkArrow' src={assets.darkArrow} alt="" />  </button>
             </div>
 
         </div>

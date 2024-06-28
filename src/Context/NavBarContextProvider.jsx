@@ -1,16 +1,24 @@
 
+import React from "react";
 
+import { createContext, useContext, useState, useRef, useEffect } from "react";
+import { animateScroll as scroll, Events } from "react-scroll";
 
-import { createContext, useContext, useState } from "react";
 
 export const NavBarContext = createContext();
 
 
 
 const NavBarContextProvider = (props) => {
-
+    
     //themeSwitcher
     const [darkMode, setDarkMode] = useState(false);
+    const [hidden, setHidden] = useState(true);
+    const navbar = useRef();
+    const sideBar = useRef(null);
+
+    const [sticky, setSticky] = useState(false);
+
     const themeSwitcher = () => {
 
         if (darkMode) {
@@ -19,66 +27,154 @@ const NavBarContextProvider = (props) => {
         else {
             setDarkMode(true);
         }
-        // console.log(darkMode);
-        //     if (darkMode) {    
-        //         document.querySelector('.btn').style.backgroundColor = '#161824';
-        //         document.querySelector('.btn').style.color = 'white'
-        //         document.querySelector('.dark-btn').style.backgroundColor = '#0a0c14';
-        //         document.querySelector('.btn').style.boxShadow = '0px 0px 6px rgba(255, 255, 255, 0.531)'
-        //         // box - shadow: 
 
-
-        //         document.body.style.backgroundColor = '#161824';
-        //         document.body.style.color = 'white';
-
-        //         document.querySelector('.dark-nav').style.backgroundColor = '#0a0c14';
-        //         document.querySelector('.nav').style.Color = '#c0c0c0';
-
-
-        //         document.querySelector('.first-title').style.color = 'rgba(255, 255, 255, 0.500)'
-        //         document.querySelector('.second-title').style.color = 'rgba(255, 255, 255, 0.700)'
-
-
-        //         document.querySelector('.slide').style.backgroundColor = '#161824';
-        //         document.querySelector('.slide').style.boxShadow = '0px 0px 10px rgba(255, 255, 255, 0.570)'
-        //         document.querySelector('.slide').style.color = '0px 0px 10px rgba(255, 255, 255, 0.500)'
-
-
-
-        //         document.querySelector('.user-info-img').style.border = '3px solid grey'
-
-        //         document.querySelector('.user-info-h3').style.color = 'rgba(255, 255, 255, 0.8)'
-
-
-
-        //     }
-        //     else{
-        //         document.querySelector('.btn').style.backgroundColor = '#fff'
-        //         document.querySelector('.btn').style.color = '#212121'
-        //         document.querySelector('.dark-btn').style.backgroundColor = 'rgba(255, 255, 255, 0.500)';
-
-
-        //         document.body.style.backgroundColor = '#f5f5f5';
-
-        //         document.querySelector('.dark-nav').style.backgroundColor = '#212ea0';
-        //         document.querySelector('.nav').style.color = '#fff';
-
-        //         document.querySelector('.first-title').style.color = 'rgb(33, 46, 160)'
-        //         document.querySelector('.second-title').style.color = '#000F38'
-
-        //         document.querySelector('.slide').style.backgroundColor = '#f5f5f5';
-        //         document.querySelector('.slide').style.boxShadow = '0 0 20px rgba(0,0,0,0.05)'
-        //         document.querySelector('.slide').style.color = '#676767'
-
-
-        //         document.querySelector('.user-info-img').style.border = '2px solid #212EA0'
-        //         document.querySelector('.user-info-h3').style.color = '#212EA0'
-        //     }
     }
+    useEffect(() => {
+        window.addEventListener('scroll', (e) => {
+            let amount = window.scrollY;
+            console.log('height = ' + window.innerHeight);
+            if (amount > 50) {
+                setSticky(true);
+            }
+            else {
+                setSticky(false);
+            }
+
+        })
+    }, [])
+    const hideSideBar = () => {
+        sideBar.current.style.transform = 'translateX(200px)';
+        setHidden(true);
+    }
+
+
+ useEffect(()=>{
+     if (window.innerWidth < 850) {
+         setHidden(true);
+     }
+ } , [])
+
+
+
+    const hideOrShowSideBar = () => {
+        if (hidden) {
+            sideBar.current.style.transform = 'translateX(0px)';
+        }
+        else {
+            sideBar.current.style.transform = 'translateX(200px)';
+        }
+        setHidden(!hidden)
+    }
+    const handleResize = () => {
+        if (sideBar) {
+            if (window.innerWidth > 850) {
+                sideBar.current.style.transform = 'translateX(0px)';
+            } else {
+                sideBar.current.style.transform = 'translateX(200px)';
+            }
+        }
+    };
+    window.addEventListener('resize', handleResize);
+
+
+
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (window.innerWidth < 850) {
+                if (sideBar.current && !sideBar.current.contains(event.target) && !navbar.current.contains(event.target)) {
+                    hideSideBar();
+                }
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+        document.addEventListener('mousedown', handleClickOutside);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
+
+
+
+    const [activeSection, setActiveSection] = useState('');
+    const sections = ['home', 'programs', 'about', 'campus', 'testimonials', 'contact'];
+
+    const handleSetActive = (to) => {
+        setActiveSection(to);
+    };
+
+    // Adding an event listener for scroll events
+    React.useEffect(() => {
+        Events.scrollEvent.register('begin', (to, element) => {
+            setActiveSection(to);
+        });
+
+        Events.scrollEvent.register('end', (to, element) => {
+            setActiveSection(to);
+        });
+
+        return () => {
+            Events.scrollEvent.remove('begin');
+            Events.scrollEvent.remove('end');
+        };
+    }, []);
+
+
+
+    useEffect(() => {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5, // Trigger when 50% of the section is in view
+        };
+
+        const observerCallback = (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        sections.forEach((section) => {
+            const element = document.getElementById(section);
+            if (element) {
+                observer.observe(element);
+            }
+        });
+
+        return () => {
+            sections.forEach((section) => {
+                const element = document.getElementById(section);
+                if (element) {
+                    observer.unobserve(element);
+                }
+            });
+        };
+    }, [sections]);
+
+
+
+
+
 
     const contextValue = {
         darkMode,
-        themeSwitcher
+        themeSwitcher,
+        navbar,
+        sideBar,
+        sticky, setSticky,
+        hidden, setHidden,
+        hideSideBar, hideOrShowSideBar,
+        handleResize,
+        activeSection, setActiveSection, handleSetActive, sections,
+
     }
 
     return (

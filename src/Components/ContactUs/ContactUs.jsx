@@ -1,8 +1,10 @@
 import React from 'react'
 import './ContactUs.css'
 import { assets } from '../../assets/index'
+import { useNavBarContext } from '../../Context/NavBarContextProvider'
 const ContactUs = () => {
-
+     
+    const {hidden} = useNavBarContext();
 
     const [result, setResult] = React.useState("");
 
@@ -34,7 +36,7 @@ const ContactUs = () => {
     };
 
     return (
-        <div className='contact'  >
+        <div className={`contact `}  >
 
 
 

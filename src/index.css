@@ -53,7 +53,7 @@ body {
     padding-right: 5%;
   }
   .btn {
-    padding: 14px 22px;
+    padding: 11px 20px;
   }
 }
 
@@ -110,11 +110,12 @@ body {
   transform: translateY(200px);
   /* opacity: 0; */
 }
-body.dark{
+body.dark {
   background-color: #161824;
   color: white;
-  }
+}
 .dark {
+  transition: all 1s;
   body {
     background-color: #161824;
     color: white;
@@ -185,4 +186,31 @@ body.dark{
       border: 3px solid grey;
     }
   }
+   .themeSwitcher{
+    color: white;
+   }
+   .navigate-dark{
+  color: yellow;
+}
+}
+
+.active-link {
+  /* color: rgb(255, 183, 0); Change this to your desired active link color */
+  color: #ffdb51;
+  font-size: 1.1rem;
+}
+
+
+/* i have to shift the content left wards when header is open so i will just add this class when navbar is open */
+/* Also set the content nicely */
+.block{
+  display: block;
+}
+.normal{
+  width: 100%;
+  transition: width  0.5s;
+}
+.rotate-on-header-open{
+
+  width: calc(100% - 200px)
 }

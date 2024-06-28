@@ -9,9 +9,6 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  /* transition: all 1s; */
-
   z-index: 10;
 
   /* height: 80px; */
@@ -20,7 +17,8 @@ nav {
 }
 .logo {
   width: 180px;
-  filter: grayscale(1);
+  /* position: fixed; */
+  /* filter: grayscale(1); */
 }
 nav ul {
   display: flex;
@@ -37,22 +35,75 @@ nav ul {
 .menu-icon {
   display: none;
 }
-
+.close-icon {
+  display: none;
+}
 .hide{
   transform: translateX(200px);
 }
 
+
+.themeSwitcher{
+  font-size: 1.8rem;
+  position: fixed;
+  right: 10px;
+  color: #ffdb51;
+}
+.navigate{ 
+  /* height: 30px; */
+  font-size: 1.2rem;
+  color: rgba(128, 128, 128, 0.694);
+  /* background-color: black; */
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+.navigate-dark{
+  color: #212ea0;
+}
+.navigate li {
+  list-style: none;
+}
+
+/* changing the state on hovering */
+.nav-items:hover{
+  cursor: pointer;
+  transition: font-size 0.5s;
+  /* text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.471); */
+  /* transform: scale(1.05); */
+  font-size: 1.05rem;
+}
 /*=====media query===================*/
 
+@media (max-width: 1200px) {
+ 
+  nav ul {
+ font-size: 1rem;
+  
+  }
+  
+}
 @media (max-width: 1000px) {
   .logo {
     width: 140px;
   }
   nav ul {
+    
     gap: 1rem;
   }
 }
 @media (max-width: 850px) {
+
+ .themeSwitcher{
+  font-size: 1.8rem;
+  position: fixed;
+  bottom: 0;
+  right: 10px;
+  color: rgba(0, 0, 0, 0.471);
+}
   nav {
     padding: 15px 0;
   }
@@ -62,7 +113,7 @@ nav ul {
     right: 0;
     bottom: 0;
     background-color: #212ea0;
-    z-index: -1;
+    /* z-index: -1; */
     width: 200px;
     padding-top: 70px;
     flex-direction: column;
@@ -82,6 +133,15 @@ nav ul {
     width: 30px;
     cursor: pointer;
   }
+  .close-icon{
+    display: block;
+    /* width: 0px; */
+    cursor: pointer;
+    transform: scale(2)  translateX(5px);
+    /* border-radius: 70%; */
+  }
+
+  
 }
 
 
@@ -91,10 +151,3 @@ nav ul {
 
 
 
-
-
-.themeSwitcher{
-  font-size: 2rem;
-  position: fixed;
-  right: 10px;
-}
