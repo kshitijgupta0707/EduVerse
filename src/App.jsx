@@ -1,9 +1,18 @@
-import React, { useState } from 'react'
-import { Hero, NavBar, Programs, Title, About, Campus, Testimonials, ContactUs, Footer  } from './Components/index'
+import React, { useEffect, useState } from 'react'
+import { Hero, NavBar, Programs, Title, About, Campus, Testimonials, ContactUs, Footer } from './Components/index'
 import { Element } from 'react-scroll';
+import { useNavBarContext } from './Context/NavBarContextProvider';
 const App = () => {
- 
-const [playState , setPlayState] = useState(false);
+
+  const [playState, setPlayState] = useState(false);
+  const { darkMode } = useNavBarContext();
+  useEffect(()=>{
+    if (darkMode) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
+  } ,[darkMode])
 
   return (
     <div>
@@ -21,7 +30,7 @@ const [playState , setPlayState] = useState(false);
         </Element>
 
         <Element  >
-          <About setPlayState = {setPlayState} name='about' />
+          <About setPlayState={setPlayState} name='about' />
         </Element>
 
         <Element name='campus' >

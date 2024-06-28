@@ -83,3 +83,18 @@ nav ul {
     cursor: pointer;
   }
 }
+
+
+
+
+
+
+
+
+
+
+.themeSwitcher{
+  font-size: 2rem;
+  position: fixed;
+  right: 10px;
+}

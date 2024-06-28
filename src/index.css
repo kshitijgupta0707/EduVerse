@@ -110,3 +110,79 @@ body {
   transform: translateY(200px);
   /* opacity: 0; */
 }
+body.dark{
+  background-color: #161824;
+  color: white;
+  }
+.dark {
+  body {
+    background-color: #161824;
+    color: white;
+  }
+  nav {
+    color: #c0c0c0;
+  }
+  .dark-nav {
+    background-color: #0a0c14;
+  }
+
+  .title p {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .title h2 {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .slide {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.573);
+    color: rgba(255, 255, 255, 0.5);
+    background-color: #161824;
+  }
+
+  .slide img {
+    border: 3px solid grey;
+  }
+  .user-info h3 {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .about h3 {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .about h2 {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .about p {
+    color: #acacacc5;
+  }
+
+  .contact {
+    color: #676767;
+  }
+
+  .contact-left-heading {
+    color: rgba(255, 255, 255, 0.678);
+  }
+
+  .btn {
+    background-color: #161824;
+    color: white;
+    box-shadow: 0px 0px 6px rgba(255, 255, 255, 0.531);
+  }
+  .dark-btn {
+    background-color: #0a0c14;
+
+    color: #fff;
+  }
+
+  @media (max-width: 850px) {
+    nav ul {
+      background-color: #0a0c14;
+    }
+  }
+  @media (max-width: 800px) {
+    .slide img {
+      border: 3px solid grey;
+    }
+  }
+}

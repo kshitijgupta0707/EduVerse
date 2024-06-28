@@ -2,9 +2,10 @@ import React, { useEffect, useRef, useState } from 'react'
 import "./NavBar.css"
 import { assets } from '../../assets/index'
 import { Link, animateScroll as scroll } from "react-scroll";
-
+import { MdDarkMode, MdOutlineDarkMode } from "react-icons/md";
+import { useNavBarContext } from '../../Context/NavBarContextProvider';
 const NavBar = () => {
-
+    const { darkMode, themeSwitcher } = useNavBarContext();
     const navbar = useRef();
     const sideBar = useRef(null);
 
@@ -23,6 +24,7 @@ const NavBar = () => {
 
         })
     }, [])
+
     // scrollToTop = () => {
     //     scroll.scrollToTop();
     // };
@@ -98,13 +100,20 @@ const NavBar = () => {
         };
     }, []);
 
+      
 
+    
+    useEffect(()=>{
+        console.log(darkMode);
+    } , [darkMode])
 
 
 
     return (
 
         <nav ref={navbar} className={`container ${sticky ? "dark-nav" : ""}`} >
+
+            <div className='themeSwitcher' onClick={themeSwitcher} >{darkMode ? <MdDarkMode /> : <MdOutlineDarkMode />} </div>
 
             <img className='logo' src={assets.logo} alt="" />
 

@@ -4,10 +4,10 @@ const Title = ({ subtitle, title }) => {
     return (
         <div className='title'  >
 
-            <p className="firstHeading">
+            <p className='first-title'>
                 {subtitle}
             </p>
-            <h2 >
+            <h2 className='second-title' >
                 {title}
             </h2>
 
