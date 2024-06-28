@@ -68,7 +68,7 @@ const NavBar = () => {
                 </li>
                 <li className='nav-items' >
                     <Link to="contact" smooth={true} duration={500}  className={activeSection === 'contact' ? 'active-link' : ''} offset={0} >
-                        <button className={`btn ${activeSection === 'contact' ? 'active-link' : ''} `}>Contact Us</button>
+                        <button className={`btn `}>Contact Us</button>
                     </Link>
                 </li>
             </ul>

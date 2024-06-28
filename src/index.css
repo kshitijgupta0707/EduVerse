@@ -34,6 +34,10 @@ body {
   justify-content: center;
   align-items: center;
   margin: auto;
+  transition: transform 0.5s;
+}
+.btn:hover{
+  transform: scale(1.04);
 }
 
 .btn img {
@@ -110,12 +114,25 @@ body {
   transform: translateY(200px);
   /* opacity: 0; */
 }
+
+
+/* making the dark mode */
 body.dark {
   background-color: #161824;
   color: white;
 }
 .dark {
+
+.hero{
+   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0,0,0, 0.8)),
+    url("./assets/images/hero.png");
+}
+
+
   transition: all 1s;
+
+
+
   body {
     background-color: #161824;
     color: white;
