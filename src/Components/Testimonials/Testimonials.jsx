@@ -60,7 +60,7 @@ const Testimonials = () => {
 
                         <div className='slide shadowAnimations ' >
                             <div className='user-info' >
-                                <img src={assets.user1} alt="" />
+                                <img src={assets.user5} alt="" />
                                 <div>
                                     <h3>Kshitij Gupta</h3>
                                     <span>Gurgaon , India</span>
@@ -78,27 +78,7 @@ const Testimonials = () => {
 
                         <div className='slide shadowAnimations ' >
                             <div className='user-info' >
-                                <img src={assets.user2} alt="" />
-                                <div>
-                                    <h3>Siddhant Gupta</h3>
-                                    <span>Noida , India</span>
-                                </div>
-                            </div>
-                            <p>
-                                Choosing to pursue my Computer science degree at JIIT was one of the best decisions I've have ever mae.
-                                The supporting environment , state-of-the-art facilities ,
-                                and commitement to academic excellence have truly exceeded my expectations
-                            </p>
-
-
-                        </div>
-
-                    </li>
-                    <li>
-
-                        <div className='slide shadowAnimations ' >
-                            <div className='user-info' >
-                                <img src={assets.user3} alt="" />
+                                <img src={assets.user6} alt="" />
                                 <div>
                                     <h3>Nandini Jindal</h3>
                                     <span>Patiala , India</span>
@@ -116,9 +96,29 @@ const Testimonials = () => {
 
                         <div className='slide shadowAnimations ' >
                             <div className='user-info' >
-                                <img src={assets.user4} alt="" />
+                                <img src={assets.user7} alt="" />
                                 <div>
-                                    <h3>Kartik Aggarwal</h3>
+                                    <h3>Kunjal</h3>
+                                    <span>Hisar , India</span>
+                                </div>
+                            </div>
+                            <p>
+                                Choosing to pursue my Computer science degree at JIIT was one of the best decisions I've have ever mae.
+                                The supporting environment , state-of-the-art facilities ,
+                                and commitement to academic excellence have truly exceeded my expectations
+                            </p>
+
+
+                        </div>
+
+                    </li>
+                    <li>
+
+                        <div className='slide shadowAnimations ' >
+                            <div className='user-info' >
+                                <img src={assets.user8} alt="" />
+                                <div>
+                                    <h3>Ashish Singh</h3>
                                     <span> UP, India</span>
                                 </div>
                             </div>

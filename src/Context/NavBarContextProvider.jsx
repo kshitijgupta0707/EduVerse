@@ -202,7 +202,11 @@ const NavBarContextProvider = (props) => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+ 
 
+
+    //gallery 
+    const [gallery , setGallery] = useState(false);
 
 
 
@@ -216,6 +220,7 @@ const NavBarContextProvider = (props) => {
         hideSideBar, hideOrShowSideBar,
         handleResize,
         activeSection, setActiveSection, handleSetActive, sections,
+        gallery , setGallery
 
     }
 

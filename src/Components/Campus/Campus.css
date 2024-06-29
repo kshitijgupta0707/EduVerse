@@ -12,6 +12,7 @@
 .gallery img {
   width: 23%;
   border-radius: 10px;
+  /* min-height: 400px; */
 }
 /* mediaaaaaaaaaaaaaaaaaaaaa */
 @media(max-width: 800px){

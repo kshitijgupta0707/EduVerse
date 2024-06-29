@@ -1,20 +1,26 @@
 import './Campus.css'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { assets } from '../../assets/index'
-const Campus = () => {
-    return (
-        <div className="campus">
+import { useNavigate } from 'react-router-dom'
+import {Photos} from '../index'
+import { useNavBarContext } from '../../Context/NavBarContextProvider'
 
-        <div className='gallery slideFromLeft' >
-            <img className='scaleImage' src={assets.gallery1} alt="" />
-            <img className='scaleImage' src={assets.gallery2} alt="" />
-            <img className='scaleImage' src={assets.gallery3} alt="" />
-            <img className='scaleImage' src={assets.gallery4} alt="" />
-        </div>
-            <button onClick={() => {
-                window.location.href = "https://www.jiit.ac.in/"
-            }} className='btn dark-btn' >See More here <img src={assets.whiteArrow} alt="" />  </button>
-        </div>
+const Campus = () => {
+    const {setGallery} = useNavBarContext();
+    return (
+        <>
+            <div className="campus">
+                <div className='gallery slideFromLeft' >
+                    <img id='gal1' className='scaleImage' src={assets.college1} alt="" />
+                    <img id='gal2' className='scaleImage' src={assets.college2} alt="" />
+                    <img id='gal3' className='scaleImage' src={assets.college10} alt="" />
+                    <img id='gal4' className='scaleImage' src={assets.college9} alt="" />
+                </div>
+                <button onClick={() => { setGallery(true) }} className='btn dark-btn' >See More here <img src={assets.whiteArrow} alt="" />  </button>
+            </div>
+            <Photos/>
+        </>
+
     )
 }
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Hero, NavBar, Programs, Title, About, Campus, Testimonials, ContactUs, Footer } from './Components/index'
 import { Element } from 'react-scroll';
 import { useNavBarContext } from './Context/NavBarContextProvider';
+import VideoPlayer from './Components/VideoPlayer/VideoPlayer';
 const App = () => {
 
   const [playState, setPlayState] = useState(false);
@@ -54,7 +55,7 @@ const App = () => {
 
       </div>
 
-      {/* <VideoPlayer playState={playState} setPlayState={setPlayState} /> */}
+      <VideoPlayer playState={playState} setPlayState={setPlayState} />
 
     </div>
   )

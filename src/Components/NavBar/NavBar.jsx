@@ -40,7 +40,7 @@ const NavBar = () => {
             <div className='themeSwitcher' onClick={themeSwitcher} >{darkMode ? <MdDarkMode /> : <MdLightMode />} </div>
 
             {/* <img className='logo' src={assets.logo} alt="" /> */}
-            <h3 className='jiit' >JIIT <GiElephant className='book' /></h3>
+            <h3 className='jiit' > <img className='hat' src={assets.hat}alt="" /> JIIT </h3>
             {/* <img className='logo' src={assets.logo2} alt="" /> */}
 
             <ul ref={sideBar} id='sideBar' >
@@ -61,7 +61,7 @@ const NavBar = () => {
                 </li>
                 <li className='nav-items' >
                     <Link to="campus" smooth={true} duration={500}  className={activeSection === 'campus' ? 'active-link' : ''} offset={-170} >
-                        Campus
+                        Gallery
                     </Link>
                 </li>
                 <li className='nav-items' >

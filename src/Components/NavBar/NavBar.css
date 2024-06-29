@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
 nav {
   width: 100%;
   /* background-color: #ffffff6c; */
@@ -17,12 +19,16 @@ nav {
 }
 .jiit {
   font-size: 2.2rem;
-  font-family: "Alfa Slab One", serif;
-  letter-spacing: 3px;
-  font-weight: 400;
+   font-family: "Outfit", sans-serif;
+  letter-spacing: 1px;
+
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.hat{
+  width: 40px;
+  margin-right: 5px;
 }
 .book {
   color: #ffdb51;
@@ -153,19 +159,8 @@ nav ul {
 }
 
 @media (max-width: 1000px) {
-  .jiit {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 850px) {
-  .jiit {
-    font-size: 1.7rem;
-    font-family: "Alfa Slab One", serif;
-    letter-spacing: 3px;
-    font-weight: 400;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  
+  .hat{
+    width: 37px;
   }
 }

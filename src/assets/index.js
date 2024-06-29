@@ -24,12 +24,30 @@ import user1 from "./images/user1.png";
 import user2 from "./images/user2.png";
 import user3 from "./images/user3.png";
 import user4 from "./images/user4.png";
+import user5 from "./images/user5.jpeg";
+import user6 from "./images/user6.jpeg";
+import user7 from "./images/user7.jpeg";
+import user8 from "./images/user8.jpeg";
 import whiteArrow from "./images/whiteArrow.png";
 // import elephantlogo from './images/elephantlogo.png'
 // import video from "./images/video.mp4";
 import logo2 from './images/logo2.png'
 import logo3 from './images/logo3.png'
+import college1 from './images/college1.jpeg'
+import college2 from './images/college2.jpeg'
+import college3 from './images/college3.jpeg'
+import college4 from './images/college4.jpeg'
+import college5 from './images/college5.jpeg'
+import college6 from './images/college6.jpeg'
+import college7 from './images/college7.jpeg'
+import college8 from './images/college8.jpeg'
+import college9 from './images/college9.jpeg'
+import college10 from './images/college10.jpeg'
+import college11 from './images/college11.jpeg'
 
+
+
+ import hat from  './images/hat.png'
 export const assets = {
   about,
   back,
@@ -58,7 +76,9 @@ export const assets = {
   user3,
   user4,
   whiteArrow,
-  logo2 , logo3
+  logo2 , logo3 ,
+  hat,
+  college1,college2,college3 , college4 , college5 , college6 , college7 , college8 , college9 , college10 , college11 , user5 , user6 , user7  , user8
   // elephantlogo
   // video,
 };

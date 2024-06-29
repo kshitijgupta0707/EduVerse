@@ -79,21 +79,21 @@ const ContactUs = () => {
                     <input type="hidden" name="access_key" value="19c4dc74-be84-4eee-858e-12b864d03813" />
                     <label>
                         Your name
-                        <input type="text" id='name' name='name' placeholder='Enter your name' />
+                        <input required type="text" id='name' name='name' placeholder='Enter your name' />
                     </label>
                     <label>
                         Phone Number
-                        <input type="text" id='phone' name='phone' placeholder='Enter your mobile number' />
+                        <input required type="number" id='phone' name='phone' placeholder='Enter your mobile number' />
 
                     </label>
                     <label>
                         Your Email
-                        <input type="text" id='email' name='email' placeholder='Enter your email' />
+                        <input required type="email" id='email' name='email' placeholder='Enter your email' />
 
                     </label>
                     <label>
                         Write your messages here
-                        <textarea id="message" name='message' placeholder='Enter your message'  >
+                        <textarea required id="message" name='message' placeholder='Enter your message'  >
 
                         </textarea>
 
