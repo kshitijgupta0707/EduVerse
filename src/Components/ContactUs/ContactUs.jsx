@@ -3,10 +3,8 @@ import './ContactUs.css'
 import { assets } from '../../assets/index'
 import { useNavBarContext } from '../../Context/NavBarContextProvider'
 import { FaMessage } from "react-icons/fa6";
-import { IoIosContact } from "react-icons/io";
 const ContactUs = () => {
-     
-    const {hidden} = useNavBarContext();
+
 
     const [result, setResult] = React.useState("");
 
@@ -32,13 +30,13 @@ const ContactUs = () => {
             setResult(data.message);
         }
 
-        setTimeout(()=>{
+        setTimeout(() => {
             setResult("");
-        } , 2000)
+        }, 2000)
     };
 
     return (
-        <div className={`contact `}  >
+        <div className={`contact fadeIn  initial-slide-up slideFromDown `}  >
 
 
 
@@ -74,7 +72,7 @@ const ContactUs = () => {
 
             <div className="contact-right">
 
-                <form onSubmit={onSubmit}  className='form'>
+                <form onSubmit={onSubmit} className='form'>
 
                     <input type="hidden" name="access_key" value="19c4dc74-be84-4eee-858e-12b864d03813" />
                     <label>

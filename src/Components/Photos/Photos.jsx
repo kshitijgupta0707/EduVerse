@@ -7,9 +7,7 @@ import {
     faCircleChevronRight,
     faCircleXmark
 } from '@fortawesome/free-solid-svg-icons'
-import { RiNextjsFill } from 'react-icons/ri';
 import { useNavBarContext } from '../../Context/NavBarContextProvider';
-import { RiCloseLine } from "react-icons/ri";
 const Photos = () => {
 
     const { gallery, setGallery } = useNavBarContext();
@@ -46,7 +44,7 @@ const Photos = () => {
     }
 
     return (
-        <div className={`gallery-container ${gallery ? 'flex' : 'none'} `}>
+        <div className={`gallery-container ${gallery ? 'flex' : 'none'} fadeIn  `}>
 
             <div className=' gallery-wrapper' >
                 {openModal && <div className='sliderWrap' >

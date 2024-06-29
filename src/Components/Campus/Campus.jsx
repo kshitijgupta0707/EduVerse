@@ -1,7 +1,5 @@
 import './Campus.css'
-import React, { useEffect, useState } from 'react'
 import { assets } from '../../assets/index'
-import { useNavigate } from 'react-router-dom'
 import {Photos} from '../index'
 import { useNavBarContext } from '../../Context/NavBarContextProvider'
 

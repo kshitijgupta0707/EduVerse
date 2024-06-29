@@ -1,4 +1,3 @@
-import Header from './Header/Header'
 import NavBar from './NavBar/NavBar'
 import Hero from './Hero/Hero'
 import Prog from './Programs/Prog'
@@ -11,4 +10,4 @@ import ContactUs from './ContactUs/ContactUs'
 import Footer from './Footer/Footer'
 import Photos from './Photos/Photos'
 // import VideoPlayer from './VideoPlayer/VideoPlayer'
-export  {NavBar , Header , Hero , Prog , Programs , Title , About , Campus , Testimonials , ContactUs , Footer  , Photos}
+export  {NavBar  , Hero , Prog , Programs , Title , About , Campus , Testimonials , ContactUs , Footer  , Photos}
