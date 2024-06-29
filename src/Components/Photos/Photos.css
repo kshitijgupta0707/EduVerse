@@ -131,9 +131,9 @@
 }
 
 .fullScreenImage {
-
-  width: calc(100% - 390px);
-  height: calc(100% - 300px);
+/* background-color: red; */
+  width: calc(100% - 300px);
+  height: calc(100% - 150px);
   display: flex;
   align-items: center;
   justify-content: center;
