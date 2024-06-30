@@ -5,7 +5,7 @@ const Footer = () => {
         <>
             <div className='footer' >
                 <p>
-                    @2024 Edusity . All right reserved
+                    @2024 JIIT . All right reserved
                 </p>
 
                 <ul>
